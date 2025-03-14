@@ -1,6 +1,38 @@
+using MultiShop.Order.Application.Features.CQRS.Handlers.AddressHandlers;
+using MultiShop.Order.Application.Features.CQRS.Handlers.OrderDetailHandlers;
+using MultiShop.Order.Application.ServiceRegistration;
+using MultiShop.Order.Application.Interfaces;
+using MultiShop.Order.Persistence.Context;
+using MultiShop.Order.Persistence.Repositories;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
+{
+    opt.Authority = builder.Configuration["IdentityServerUrl"];
+    opt.Audience = "ResourceOrder";
+    opt.RequireHttpsMetadata = false;
+});
+
+builder.Services.AddDbContext<OrderContext>();
+
+builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+builder.Services.AddApplicationService(builder.Configuration);
+
+#region CQRS
+builder.Services.AddScoped<GetAddressQueryHandler>();
+builder.Services.AddScoped<GetAddressByIdQueryHandler>();
+builder.Services.AddScoped<CreateAddressCommandHandler>();
+builder.Services.AddScoped<UpdateAddressCommandHandler>();
+builder.Services.AddScoped<DeleteAddressCommandHandler>();
+
+builder.Services.AddScoped<GetOrderDetailQueryHandler>();
+builder.Services.AddScoped<GetOrderDetailByIdQueryHandler>();
+builder.Services.AddScoped<CreateOrderDetailCommandHandler>();
+builder.Services.AddScoped<UpdateOrderDetailCommandHandler>();
+builder.Services.AddScoped<DeleteOrderDetailCommandHandler>();
+#endregion
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -18,6 +50,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
