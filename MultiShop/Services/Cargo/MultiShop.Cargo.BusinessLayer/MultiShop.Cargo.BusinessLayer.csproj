@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MultiShop.Cargo.DataAccessLayer\MultiShop.Cargo.DataAccessLayer.csproj" />
+  </ItemGroup>
+
 </Project>
