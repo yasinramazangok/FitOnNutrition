@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using MultiShop.Cargo.BusinessLayer.Abstracts;
 using MultiShop.Cargo.BusinessLayer.Concretes;
 using MultiShop.Cargo.DataAccessLayer.Abstracts;
@@ -5,6 +6,13 @@ using MultiShop.Cargo.DataAccessLayer.Concretes;
 using MultiShop.Cargo.DataAccessLayer.Contexts;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
+{
+    opt.Authority = builder.Configuration["IdentityServerUrl"];
+    opt.Audience = "ResourceCargo";
+    opt.RequireHttpsMetadata = false;
+});
 
 builder.Services.AddDbContext<CargoContext>();
 
@@ -33,6 +41,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
