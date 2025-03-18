@@ -1,0 +1,32 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+@await Component.InvokeAsync("AdminLayoutHeaderViewComponentPartial")
+
+<body class="sidebar-mini">
+    <div class="wrapper">
+
+        @await Component.InvokeAsync("AdminLayoutNavbarViewComponentPartial")
+        @await Component.InvokeAsync("AdminLayoutSidebarViewComponentPartial")
+
+        <div class="content-wrapper">
+
+            @await Component.InvokeAsync("AdminLayoutViewbagSectionViewComponentPartial")
+
+            @RenderBody()
+
+        </div>
+        <footer class="main-footer dark-bg">
+            <div class="pull-right hidden-xs"> Version 1.0</div>
+            Copyright &copy; 2017 Yourdomian. All rights reserved.
+        </footer>
+    </div>
+    <script src="~/adminpaneltemplate/html/dist/js/jquery.min.js"></script>
+    <script src="~/adminpaneltemplate/html/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/adminpaneltemplate/html/dist/js/ovio.js"></script>
+</body>
+</html>
