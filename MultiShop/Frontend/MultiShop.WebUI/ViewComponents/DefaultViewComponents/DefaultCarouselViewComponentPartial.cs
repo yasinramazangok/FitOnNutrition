@@ -7,6 +7,7 @@ namespace MultiShop.WebUI.ViewComponents.DefaultViewComponents
     public class DefaultCarouselViewComponentPartial : ViewComponent
     {
         private readonly IHttpClientFactory _httpClientFactory;
+
         public DefaultCarouselViewComponentPartial(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
