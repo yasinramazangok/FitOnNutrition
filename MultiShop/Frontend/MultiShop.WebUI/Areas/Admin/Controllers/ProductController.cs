@@ -71,7 +71,7 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
                                                    select new SelectListItem
                                                    {
                                                        Text = x.CategoryName,
-                                                       Value = x.CategoryId
+                                                       Value = x.CategoryId.ToString()
                                                    }).ToList();
             ViewBag.CategoryValues = categoryValues;
             return View();
