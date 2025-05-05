@@ -35,7 +35,7 @@
                                     <td class="text-center">@item.Category.CategoryName</td>
                                     <td class="text-center"><a href="@Url.Action("DeleteProduct", "Product", new { area = "Admin", id = item.ProductId })" class="btn btn-danger">Sil</a></td>
                                     <td class="text-center"><a href="@Url.Action("UpdateProduct", "Product", new { area = "Admin", id = item.ProductId })" class="btn btn-warning">Güncelle</a></td>
-                                    <td class="text-center"><a href="/Admin/ProductImage/ProductImageDetail/@item.ProductId" class="btn btn-primary">Ürün Görselleri</a></td>
+                                    <td class="text-center"><a href="@Url.Action("UpdateProductImage", "ProductImage", new { area = "Admin", id = item.ProductId })" class="btn btn-primary">Ürün Görselleri</a></td>
                                     <td class="text-center"><a href="/Admin/ProductDetail/UpdateProductDetail/@item.ProductId" class="btn btn-info">Açıklama ve Bilgi</a></td>
                                 </tr>
                             }
