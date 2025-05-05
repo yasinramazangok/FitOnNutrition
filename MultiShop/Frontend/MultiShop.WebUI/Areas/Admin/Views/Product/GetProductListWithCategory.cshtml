@@ -1,0 +1,49 @@
+﻿@model List<ResultProductWithCategoryDto>
+
+@{
+    ViewData["Title"] = "GetProductListWithCategory";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+<section class="content container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="chart-box">
+                <div class="bs-example" data-example-id="bordered-table">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th class="text-center">#</th>
+                                <th class="text-center">Ürün Adı</th>
+                                <th class="text-center">Fiyatı</th>
+                                <th class="text-center">Kategori</th>
+                                <th class="text-center">Sil</th>
+                                <th class="text-center">Güncelle</th>
+                                <th class="text-center">Ürün Görselleri</th>
+                                <th class="text-center">Açıklama ve Bilgi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                count++;
+                                <tr>
+                                    <th scope="row" class="text-center">@count</th>
+                                    <td class="text-center">@item.ProductName</td>
+                                    <td class="text-center">@item.ProductPrice</td>
+                                    <td class="text-center">@item.Category.CategoryName</td>
+                                    <td class="text-center"><a href="@Url.Action("DeleteProduct", "Product", new { area = "Admin", id = item.ProductId })" class="btn btn-danger">Sil</a></td>
+                                    <td class="text-center"><a href="@Url.Action("UpdateProduct", "Product", new { area = "Admin", id = item.ProductId })" class="btn btn-warning">Güncelle</a></td>
+                                    <td class="text-center"><a href="@Url.Action("UpdateProductImage", "ProductImage", new { area = "Admin", id = item.ProductId })" class="btn btn-primary">Ürün Görselleri</a></td>
+                                    <td class="text-center"><a href="/Admin/ProductDetail/UpdateProductDetail/@item.ProductId" class="btn btn-info">Açıklama ve Bilgi</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <a href="/Admin/Product/CreateProduct/" class="btn btn-success">Yeni Ürün Girişi</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

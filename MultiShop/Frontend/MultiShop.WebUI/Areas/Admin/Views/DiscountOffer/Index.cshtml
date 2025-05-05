@@ -1,0 +1,47 @@
+﻿@model List<ResultDiscountOfferDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+<section class="content container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="chart-box">
+                <div class="bs-example" data-example-id="bordered-table">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>İndirim Teklif Başlığı</th>
+                                <th>İndirim Teklif Alt Başlığı</th>
+                                <th>Sil</th>
+                                <th>Güncelle</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.Title</td>
+                                    <td>@item.SubTitle</td>
+                                    <td><a href="@Url.Action("DeleteDiscountOffer", "DiscountOffer", new { area = "Admin", id = item.DiscountOfferId })" class="btn btn-danger">Sil</a></td>
+                                    <td><a href="@Url.Action("UpdateDiscountOffer", "DiscountOffer", new { area = "Admin", id = item.DiscountOfferId })" class="btn btn-warning">Güncelle</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    @if (Model.Count < 2 && Model.Count >= 0)
+                    {
+                        <a href="/Admin/DiscountOffer/CreateDiscountOffer/" class="btn btn-success">Yeni İndirim Teklifi Girişi</a>
+                    }
+                    else
+                    {
+                        <button class="btn btn-info" disabled>Yeni İndirim Teklifi Girişi</button>
+                        <p class="text-muted">Maksimum 2 indirim teklifi eklenebilir.</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
