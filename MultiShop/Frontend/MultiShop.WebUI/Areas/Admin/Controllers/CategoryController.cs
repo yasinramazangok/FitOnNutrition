@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using MultiShop.DtoLayer.Dtos.CategoryDtos;
 using Newtonsoft.Json;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace MultiShop.WebUI.Areas.Admin.Controllers
 {
