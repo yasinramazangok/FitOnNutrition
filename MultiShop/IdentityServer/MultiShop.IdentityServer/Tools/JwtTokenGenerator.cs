@@ -12,6 +12,7 @@ namespace MultiShop.IdentityServer.Tools
         public static TokenResponseViewModel GenerateToken(GetCheckApplicationUserViewModel model)
         {
             var claims = new List<Claim>();
+
             if (!string.IsNullOrWhiteSpace(model.Role))
                 claims.Add(new Claim(ClaimTypes.Role, model.Role));
 
