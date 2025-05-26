@@ -1,26 +1,4 @@
-{
-  "Routes": [
-
-    // Catalog Microservice
-    {
-      "DownstreamPathTemplate": "/api/{everything}",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 7070
-        }
-      ],
-      "UpstreamPathTemplate": "/services/catalog/{everything}",
-      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
-      "UpstreamScheme": "http",
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "OcelotAuthenticationScheme",
-        "AllowedScopes": [ "CatalogFullPermission" ]
-      }
-    },
-
-    //Discount Microservice
+//Discount Microservice
     {
       "DownstreamPathTemplate": "/api/{everything}",
       "DownstreamScheme": "http",
@@ -134,7 +112,7 @@
       }
     },
 
-    //Image Microservice
+    //Images Microservice
     {
       "DownstreamPathTemplate": "/api/{everything}",
       "DownstreamScheme": "http",
@@ -152,8 +130,3 @@
         "AllowedScopes": [ "ImageFullPermission" ]
       }
     }
-  ],
-  "GlobalConfiguration": {
-    "BaseUrl": "http://localhost:5000"
-  }
-}
