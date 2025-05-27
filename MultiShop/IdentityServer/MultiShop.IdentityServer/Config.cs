@@ -104,14 +104,19 @@ namespace MultiShop.IdentityServer
                 AllowedScopes={ "CatalogReadPermission", "CatalogFullPermission", "OcelotFullPermission", "CommentFullPermission" }
             },
 
-            //Manager
+            //Seller
             new Client
             {
                 ClientId="MultiShopSellerId",
-                ClientName="Multi Shop Manager User",
+                ClientName="Multi Shop Seller User",
                 AllowedGrantTypes=GrantTypes.ResourceOwnerPassword,
                 ClientSecrets={new Secret("multishopsecret".Sha256()) },
-                AllowedScopes={ "CatalogReadPermission", "CatalogFullPermission", "BasketFullPermission", "OcelotFullPermission", "CommentFullPermission" }
+                AllowedScopes={ "CatalogReadPermission", "CatalogFullPermission", "BasketFullPermission", "OcelotFullPermission", "CommentFullPermission",
+                IdentityServerConstants.LocalApi.ScopeName,
+                IdentityServerConstants.StandardScopes.Email,
+                IdentityServerConstants.StandardScopes.OpenId,
+                IdentityServerConstants.StandardScopes.Profile
+                }
             },
 
             //Admin
