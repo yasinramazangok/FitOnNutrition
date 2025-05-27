@@ -1,7 +1,7 @@
 ﻿using MultiShop.WebUI.Models;
 using MultiShop.WebUI.Services.Interfaces;
 
-namespace MultiShop.WebUI.Services.Concrete
+namespace MultiShop.WebUI.Services.Concretes
 {
     public class UserService : IUserService
     {
