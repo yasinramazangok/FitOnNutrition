@@ -52,7 +52,7 @@ namespace MultiShop.WebUI.Services.CatalogServices.ProductServices
 
         public async Task<List<ResultProductWithCategoryDto>> GetProductsWithCategoryByCategoryIdAsync(string CategoryId)
         {
-            var responseMessage = await _httpClient.GetAsync($"products/ProductListWithCategoryByCategoryId/{CategoryId}");
+            var responseMessage = await _httpClient.GetAsync($"products/GetProductListWithCategoryByCategoryId/{CategoryId}");
             var jsonData = await responseMessage.Content.ReadAsStringAsync();
             var values = JsonConvert.DeserializeObject<List<ResultProductWithCategoryDto>>(jsonData);
             return values;
