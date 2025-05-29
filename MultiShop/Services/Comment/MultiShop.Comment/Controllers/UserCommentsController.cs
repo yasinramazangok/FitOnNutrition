@@ -1,12 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MultiShop.Comment.Context;
 using MultiShop.Comment.Entities;
 
 namespace MultiShop.Comment.Controllers
 {
-    [AllowAnonymous]
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class UserCommentsController : ControllerBase
@@ -32,7 +31,7 @@ namespace MultiShop.Comment.Controllers
             return Ok(value);
         }
 
-        [HttpGet("GetCommentListByProductId")]
+        [HttpGet("GetCommentListByProductId/{id}")]
         public IActionResult GetCommentListByProductId(string id)
         {
             var value = _context.UserComments.Where(x => x.ProductId == id).ToList();
