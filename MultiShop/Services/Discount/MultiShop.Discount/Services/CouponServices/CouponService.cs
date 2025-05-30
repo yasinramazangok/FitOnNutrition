@@ -87,5 +87,17 @@ namespace MultiShop.Discount.Services.CouponServices
                 return values;
             }
         }
+
+        public int GetCouponRateByCode(string code)
+        {
+            string query = "Select Rate From Coupons Where Code=@code";
+            var parameters = new DynamicParameters();
+            parameters.Add("@code", code);
+            using (var connection = _discountContext.CreateConnection())
+            {
+                var values = connection.QueryFirstOrDefault<int>(query, parameters);
+                return values;
+            }
+        }
     }
 }
