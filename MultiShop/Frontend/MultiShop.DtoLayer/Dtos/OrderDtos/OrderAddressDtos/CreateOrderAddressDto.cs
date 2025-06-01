@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MultiShop.Order.Application.Features.CQRS.Commands.AddressCommands
+namespace MultiShop.DtoLayer.Dtos.OrderDtos.OrderAddressDtos
 {
-    public class CreateAddressCommand
+    public class CreateOrderAddressDto
     {
         public string UserId { get; set; }
         public string Name { get; set; }
