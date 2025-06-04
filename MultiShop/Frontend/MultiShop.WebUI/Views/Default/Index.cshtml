@@ -3,18 +3,6 @@
     Layout = "~/Views/UILayout/Index.cshtml";
 }
 
-<!-- Breadcrumb Start -->
-<div class="container-fluid">
-    <div class="row px-xl-5">
-        <div class="col-12">
-            <nav class="breadcrumb bg-light mb-30">
-                <a class="breadcrumb-item text-dark" href="#">Anasayfa</a>
-                <span class="breadcrumb-item active">Ürünler</span>
-            </nav>
-        </div>
-    </div>
-</div>
-<!-- Breadcrumb End -->
 @await Component.InvokeAsync("DefaultCarouselViewComponentPartial")
 @await Component.InvokeAsync("DefaultFeaturedViewComponentPartial")
 @await Component.InvokeAsync("DefaultCategoriesViewComponentPartial")

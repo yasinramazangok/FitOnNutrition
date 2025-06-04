@@ -2,17 +2,12 @@
 using MultiShop.Order.Application.Features.Mediator.Queries.OrderQueries;
 using MultiShop.Order.Application.Features.Mediator.Results.OrderResults;
 using MultiShop.Order.Application.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MultiShop.Order.Application.Features.Mediator.Handlers.OrderHandlers
 {
     public class GetOrderByIdQueryHandler : IRequestHandler<GetOrderByIdQuery, GetOrderByIdQueryResult>
     {
-        private readonly IRepository<MultiShop.Order.Domain.Entities.Order> _orderRepository;
+        private readonly IRepository<Domain.Entities.Order> _orderRepository;
 
         public GetOrderByIdQueryHandler(IRepository<Domain.Entities.Order> orderRepository)
         {
