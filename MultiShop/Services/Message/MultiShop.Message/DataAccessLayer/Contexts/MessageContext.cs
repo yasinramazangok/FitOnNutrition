@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MultiShop.Message.DataAccessLayer.Entities;
 
-namespace MultiShop.Message.DataAccessLayer.Context
+namespace MultiShop.Message.DataAccessLayer.Contexts
 {
     public class MessageContext : DbContext
     {

@@ -67,6 +67,7 @@ namespace MultiShop.IdentityServer
            new ApiResource("ResourcePayment"){Scopes={ "PaymentFullPermission" } },
            new ApiResource("ResourceImage"){Scopes={ "ImageFullPermission" } },
            new ApiResource("ResourceOcelot"){Scopes={"OcelotFullPermission"} },
+           new ApiResource("ResourceMessage"){Scopes={"MessageFullPermission"} },
            new ApiResource(IdentityServerConstants.LocalApi.ScopeName)
         };
 
@@ -89,6 +90,7 @@ namespace MultiShop.IdentityServer
             new ApiScope("PaymentFullPermission","Full authority for payment operations"),
             new ApiScope("ImageFullPermission","Full authority for image operations"),
             new ApiScope("OcelotFullPermission","Full authority for ocelot operations"),
+            new ApiScope("MessageFullPermission","Full authority for message operations"),
             new ApiScope(IdentityServerConstants.LocalApi.ScopeName)
         };
 
@@ -101,8 +103,8 @@ namespace MultiShop.IdentityServer
                 ClientName="Multi Shop Visitor User",
                 AllowedGrantTypes=GrantTypes.ClientCredentials,
                 ClientSecrets={new Secret("multishopsecret".Sha256())},
-                AllowedScopes={ "CatalogReadPermission", "CatalogFullPermission", "OcelotFullPermission", "CommentFullPermission", 
-                IdentityServerConstants.LocalApi.ScopeName 
+                AllowedScopes={ "CatalogReadPermission", "CatalogFullPermission", "OcelotFullPermission", "CommentFullPermission",
+                IdentityServerConstants.LocalApi.ScopeName
                 }
             },
 
@@ -113,7 +115,7 @@ namespace MultiShop.IdentityServer
                 ClientName="Multi Shop Seller User",
                 AllowedGrantTypes=GrantTypes.ResourceOwnerPassword,
                 ClientSecrets={new Secret("multishopsecret".Sha256()) },
-                AllowedScopes={ "CatalogReadPermission", "CatalogFullPermission", "BasketFullPermission", "OcelotFullPermission", "CommentFullPermission", "DiscountFullPermission", "OrderFullPermission",
+                AllowedScopes={ "CatalogReadPermission", "CatalogFullPermission", "BasketFullPermission", "OcelotFullPermission", "CommentFullPermission", "DiscountFullPermission", "OrderFullPermission", "MessageFullPermission",
                 IdentityServerConstants.LocalApi.ScopeName,
                 IdentityServerConstants.StandardScopes.Email,
                 IdentityServerConstants.StandardScopes.OpenId,
