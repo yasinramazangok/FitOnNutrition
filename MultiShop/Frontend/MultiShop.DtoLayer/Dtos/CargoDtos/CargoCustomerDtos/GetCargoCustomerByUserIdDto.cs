@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MultiShop.Cargo.DtoLayer.Dtos.CargoCustomerDtos
+﻿namespace MultiShop.DtoLayer.Dtos.CargoDtos.CargoCustomerDtos
 {
-    public class CreateCargoCustomerDto
+    public class GetCargoCustomerByUserIdDto
     {
+        public int CargoCustomerId { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Email { get; set; }

@@ -18,6 +18,7 @@
                                 <th>Ad Soyad</th>
                                 <th>Kullanıcı Adı</th>
                                 <th>Email</th>
+                                <th>Adres</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -29,7 +30,9 @@
                                     <td>@item.name</td>
                                     <td>@item.userName</td>
                                     <td>@item.email</td>
-                                </tr>
+                                    <td><a href="/Admin/User/GetUserAddressInfo/@item.id" class="btn btn-primary">Adres Detayı</a></td>
+                                    @*                                     <td><a href="@Url.Action("GetUserAddressInfo", "User", new { area = "Admin", id = item.id })" class="btn btn-primary">Adres Detayı</a></td>
+ *@                                </tr>
                             }
                         </tbody>
                     </table>
