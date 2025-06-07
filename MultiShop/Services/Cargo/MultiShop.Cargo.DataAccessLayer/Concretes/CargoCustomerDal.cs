@@ -10,5 +10,10 @@ namespace MultiShop.Cargo.DataAccessLayer.Concretes
         {
 
         }
+        public CargoCustomer GetCargoCustomerByUserId(string id)
+        {
+            var context = new CargoContext();
+            return context.CargoCustomers.Where(x => x.CargoUserId == id).FirstOrDefault();
+        }
     }
 }

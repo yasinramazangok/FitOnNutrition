@@ -17,10 +17,10 @@ namespace MultiShop.Cargo.DataAccessLayer.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.11")
+                .HasAnnotation("ProductVersion", "6.0.26")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
             modelBuilder.Entity("MultiShop.Cargo.EntityLayer.Concretes.CargoCompany", b =>
                 {
@@ -28,7 +28,7 @@ namespace MultiShop.Cargo.DataAccessLayer.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CargoCompanyId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CargoCompanyId"), 1L, 1);
 
                     b.Property<string>("CargoCompanyName")
                         .IsRequired()
@@ -45,10 +45,13 @@ namespace MultiShop.Cargo.DataAccessLayer.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CargoCustomerId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CargoCustomerId"), 1L, 1);
 
                     b.Property<string>("Address")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CargoUserId")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("City")
@@ -86,7 +89,7 @@ namespace MultiShop.Cargo.DataAccessLayer.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CargoDetailId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CargoDetailId"), 1L, 1);
 
                     b.Property<int>("Barcode")
                         .HasColumnType("int");
@@ -115,7 +118,7 @@ namespace MultiShop.Cargo.DataAccessLayer.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CargoOperationId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CargoOperationId"), 1L, 1);
 
                     b.Property<string>("Barcode")
                         .IsRequired()

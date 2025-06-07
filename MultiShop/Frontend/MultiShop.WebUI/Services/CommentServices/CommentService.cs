@@ -49,5 +49,26 @@ namespace MultiShop.WebUI.Services.CommentServices
             var values = JsonConvert.DeserializeObject<List<ResultUserCommentDto>>(jsonData);
             return values;
         }
+
+        public async Task<int> GetTotalCommentCount()
+        {
+            var responseMessage = await _httpClient.GetAsync("usercomments/GetTotalCommentCount");
+            var values = await responseMessage.Content.ReadFromJsonAsync<int>();
+            return values;
+        }
+
+        public async Task<int> GetActiveCommentCount()
+        {
+            var responseMessage = await _httpClient.GetAsync("usercomments/GetActiveCommentCount");
+            var values = await responseMessage.Content.ReadFromJsonAsync<int>();
+            return values;
+        }
+
+        public async Task<int> GetPassiveCommentCount()
+        {
+            var responseMessage = await _httpClient.GetAsync("usercomments/GetPassiveCommentCount");
+            var values = await responseMessage.Content.ReadFromJsonAsync<int>();
+            return values;
+        }
     }
 }

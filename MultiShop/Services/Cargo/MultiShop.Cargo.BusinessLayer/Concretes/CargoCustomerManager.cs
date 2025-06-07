@@ -1,11 +1,6 @@
 ﻿using MultiShop.Cargo.BusinessLayer.Abstracts;
 using MultiShop.Cargo.DataAccessLayer.Abstracts;
 using MultiShop.Cargo.EntityLayer.Concretes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MultiShop.Cargo.BusinessLayer.Concretes
 {
@@ -41,6 +36,11 @@ namespace MultiShop.Cargo.BusinessLayer.Concretes
         public void TUpdate(CargoCustomer entity)
         {
             _cargoCustomerDal.Update(entity);
+        }
+
+        public CargoCustomer TGetCargoCustomerByUserId(string id)
+        {
+            return _cargoCustomerDal.GetCargoCustomerByUserId(id);
         }
     }
 }

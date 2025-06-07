@@ -37,7 +37,7 @@ namespace MultiShop.Cargo.WebApi.Controllers
             return Ok("Kargo şirketi başarıyla oluşturuldu!");
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteCargoCompany(int id)
         {
             _cargoCompanyService.TDelete(id);

@@ -9,5 +9,6 @@ namespace MultiShop.Cargo.DataAccessLayer.Abstracts
 {
     public interface ICargoCustomerDal : IGenericRepositoryDal<CargoCustomer>
     {
+        CargoCustomer GetCargoCustomerByUserId(string id);
     }
 }

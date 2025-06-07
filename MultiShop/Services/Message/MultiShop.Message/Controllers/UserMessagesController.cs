@@ -23,14 +23,14 @@ namespace MultiShop.Message.Controllers
             return Ok(values);
         }
 
-        [HttpGet("GetMessageSendbox")]
+        [HttpGet("GetMessageSendbox/{id}")]
         public async Task<IActionResult> GetMessageSendbox(string id)
         {
             var values = await _userMessageService.GetSendboxMessagesAsync(id);
             return Ok(values);
         }
 
-        [HttpGet("GetMessageInbox")]
+        [HttpGet("GetMessageInbox/{id}")]
         public async Task<IActionResult> GetMessageInbox(string id)
         {
             var values = await _userMessageService.GetInboxMessagesAsync(id);
@@ -56,6 +56,13 @@ namespace MultiShop.Message.Controllers
         {
             await _userMessageService.UpdateMessageAsync(updateMessageDto);
             return Ok("Mesaj başarıyla güncellendi!");
+        }
+
+        [HttpGet("GetTotalMessageCount")]
+        public async Task<IActionResult> GetTotalMessageCount()
+        {
+            int values = await _userMessageService.GetTotalMessageCount();
+            return Ok(values);
         }
     }
 }

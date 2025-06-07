@@ -62,5 +62,26 @@ namespace MultiShop.Comment.Controllers
             _context.SaveChanges();
             return Ok("Yorum başarıyla güncellendi!");
         }
+
+        [HttpGet("GetActiveCommentCount")]
+        public IActionResult GetActiveCommentCount()
+        {
+            int value = _context.UserComments.Where(x => x.IsApproved == true).Count();
+            return Ok(value);
+        }
+
+        [HttpGet("GetPassiveCommentCount")]
+        public IActionResult GetPassiveCommentCount()
+        {
+            int value = _context.UserComments.Where(x => x.IsApproved == false).Count();
+            return Ok(value);
+        }
+
+        [HttpGet("GetTotalCommentCount")]
+        public IActionResult GetTotalCommentCount()
+        {
+            int value = _context.UserComments.Count();
+            return Ok(value);
+        }
     }
 }
