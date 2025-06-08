@@ -1,9 +1,12 @@
 using MultiShop.SignalRWebApi.Hubs;
+using MultiShop.SignalRWebApi.Services.SignalRCommentServices;
+using MultiShop.SignalRWebApi.Services.SignalRMessageServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+builder.Services.AddHttpClient();
 
 builder.Services.AddCors(opt =>
 {
@@ -17,6 +20,9 @@ builder.Services.AddCors(opt =>
 });
 
 builder.Services.AddSignalR();
+
+builder.Services.AddScoped<ISignalRMessageService, SignalRMessageService>();
+builder.Services.AddScoped<ISignalRCommentService, SignalRCommentService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

@@ -39,8 +39,7 @@
             <ul class="nav navbar-nav">
                 <li class="dropdown messages-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="icon-envelope"></i>
-                        <div class="notify"> <span class="badge">@ViewBag.messageCount</span> <span class="point"></span> </div>
+                        <i class="icon-envelope"><span class="badge" style="position:relative;top:-10px"><strong id="messageCount">@ViewBag.messageCount</strong></span></i>
                     </a>
                     <ul class="dropdown-menu">
                         <li class="header">@(ViewBag.messageCount > 0 ? $"Şu an {ViewBag.messageCount} yeni mesajınız var" : "Yeni mesajınız yok")</li>
@@ -85,8 +84,7 @@
                 </li>
                 <li class="dropdown notifications-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="icon-megaphone"></i>
-                        <div class="notify"> <span class="badge">@ViewBag.totalCommentCount</span> <span class="point"></span> </div>
+                        <i class="fa fa-comment"><span class="badge" style="position:relative;top:-10px"><strong id="commentCount">@ViewBag.totalCommentCount</strong></span></i>
                     </a>
                     <ul class="dropdown-menu">
                         <li class="header">@(ViewBag.totalCommentCount > 0 ? $"Şu an {ViewBag.totalCommentCount} yeni yorumunuz var" : "Yeni yorum yok")</li>
