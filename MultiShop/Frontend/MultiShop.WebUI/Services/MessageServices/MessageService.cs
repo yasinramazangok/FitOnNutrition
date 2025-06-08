@@ -1,5 +1,4 @@
-﻿using MultiShop.DtoLayer.Dtos.DiscountDtos;
-using MultiShop.DtoLayer.Dtos.MessageDtos;
+﻿using MultiShop.DtoLayer.Dtos.MessageDtos;
 
 namespace MultiShop.WebUI.Services.MessageServices
 {
@@ -23,6 +22,13 @@ namespace MultiShop.WebUI.Services.MessageServices
         {
             var responseMessage = await _httpClient.GetAsync("http://localhost:5000/services/Message/UserMessages/GetMessageSendbox/" + id);
             var values = await responseMessage.Content.ReadFromJsonAsync<List<ResultSendboxMessageDto>>();
+            return values;
+        }
+
+        public async Task<int> GetTotalMessageCountByReceiverId(string id)
+        {
+            var responseMessage = await _httpClient.GetAsync($"usermessages/GetTotalMessageCountByReceiverId/{id}");
+            var values = await responseMessage.Content.ReadFromJsonAsync<int>();
             return values;
         }
     }

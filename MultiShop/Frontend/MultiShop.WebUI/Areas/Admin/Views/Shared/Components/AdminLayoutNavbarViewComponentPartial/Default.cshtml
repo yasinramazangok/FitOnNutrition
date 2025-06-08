@@ -1,4 +1,24 @@
 ﻿<header class="main-header dark-bg">
+    <style>
+        .messages-menu {
+            position: relative;
+        }
+
+            .messages-menu .notify {
+                position: absolute;
+                top: 10px;
+                right: 3px;
+            }
+
+        .notifications-menu {
+            position: relative;
+        }
+
+            .notifications-menu .notify {
+                position: absolute;
+                top: 10px;
+            }
+    </style>
     <a href="~/adminpaneltemplate/html/index.html" class="logo dark-bg">
         <span class="logo-mini"><img src="~/images/logos/mulhtishop1.jpg" style="width:50px;height:50px; important!" alt="Ovio"></span>
         <span class="logo-lg"><img src="~/images/logos/mulhtishop1.jpg" style="width:200px;height:50px; important!" alt="Ovio"></span>
@@ -19,11 +39,10 @@
             <ul class="nav navbar-nav">
                 <li class="dropdown messages-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="icon-envelope"></i>
-                        <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
+                        <i class="icon-envelope"><span class="badge" style="position:relative;top:-10px"><strong id="messageCount">@ViewBag.messageCount</strong></span></i>
                     </a>
                     <ul class="dropdown-menu">
-                        <li class="header">You have 4 messages</li>
+                        <li class="header">@(ViewBag.messageCount > 0 ? $"Şu an {ViewBag.messageCount} yeni mesajınız var" : "Yeni mesajınız yok")</li>
                         <li>
                             <ul class="menu">
                                 <li>
@@ -65,11 +84,10 @@
                 </li>
                 <li class="dropdown notifications-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="icon-megaphone"></i>
-                        <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
+                        <i class="fa fa-comment"><span class="badge" style="position:relative;top:-10px"><strong id="commentCount">@ViewBag.totalCommentCount</strong></span></i>
                     </a>
                     <ul class="dropdown-menu">
-                        <li class="header">Notifications</li>
+                        <li class="header">@(ViewBag.totalCommentCount > 0 ? $"Şu an {ViewBag.totalCommentCount} yeni yorumunuz var" : "Yeni yorum yok")</li>
                         <li>
                             <ul class="menu">
                                 <li><a href="#"><i class="icon-lightbulb"></i> Lorem ipsum dolor sit amet </a> </li>
