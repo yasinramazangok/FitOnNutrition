@@ -1,0 +1,23 @@
+﻿@model MultiShop.ImageWebUI.DataAccessLayer.Entities.ImageDrive
+
+@{
+    Layout = null;
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container">
+    <br /><br />
+    <h2 class="alert alert-success">GDS Resim Yükleme</h2>
+    <form method="post" enctype="multipart/form-data">
+        <label>Resim Adı</label>
+        <input type="text" class="form-control border" name="Title" />
+        <br />
+        <label>Resim Dosyası Seçin</label>
+        <input type="file" class="form-control border" name="Photo" />
+        <br />
+        <input name="SavedUrl" type="hidden" class="form-control" />
+        <input name="SavedFileName" type="hidden" class="form-control" />
+        <button class="btn btn-outline-success">Resmi Kaydet</button>
+    </form>
+</div>
