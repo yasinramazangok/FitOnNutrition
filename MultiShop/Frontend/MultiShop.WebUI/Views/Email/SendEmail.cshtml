@@ -1,0 +1,27 @@
+﻿@model EmailRequestViewModel
+
+@{
+    Layout = null;
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container">
+    <br />
+    <br />
+    <div class="alert alert-success">
+        <h3>Email Gönderme</h3>
+        <form method="post">
+            <label>Alıcı Email Adresi</label>
+            <input type="email" asp-for="ReceiverEmail" class="form-control" placeholder="Geçerli bir email adresi giriniz.." required />
+            <br />
+            <label>Konu</label>
+            <input type="text" asp-for="Subject" class="form-control" placeholder="Email konusunu giriniz.." required />
+            <br />
+            <label>Mesaj</label>
+            <textarea type="text" asp-for="Body" class="form-control" placeholder="Email mesajınızı giriniz.." required></textarea>
+            <br />
+            <button class="btn btn-success">Gönder</button>
+        </form>
+    </div>
+</div>
